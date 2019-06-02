@@ -850,6 +850,37 @@ namespace NBitcoin.Tests
                 }
             };
         }
+		public class VertcoinNodeDownloadData
+		{
+			public NodeDownloadData v0_14_0 = new NodeDownloadData()
+			{
+				Version = "0.14.0",
+				Windows = new NodeOSDownloadData()
+				{
+					DownloadLink = "https://github.com/vertcoin-project/vertcoin-core/releases/download/{0}/vertcoind-v{0}-win64.zip",
+					Archive = "vertcoind-v{0}-win64.zip",
+					Executable = "VTC-{0}\\vertcoind.exe",
+					Hash = "929a1426da5e6966adb90f7e2f06b3c05066395b715f7b49ac4007714e3f11c1",
+					CreateFolder = "VTC-{0}",
+				},
+				Linux = new NodeOSDownloadData()
+				{
+					DownloadLink = "https://github.com/vertcoin-project/vertcoin-core/releases/download/{0}/vertcoind-v{0}-linux-amd64.zip",
+					Archive = "vertcoind-v{0}-linux-armhf.zip",
+					Executable = "VTC-{0}\\vertcoind",
+					Hash = "9ae133768306ef9c751e128d3592b3e998e56f08423ac496d2474426446eebe5",
+					CreateFolder = "VTC-{0}",
+				},
+				Mac = new NodeOSDownloadData()
+				{
+					DownloadLink = "https://github.com/vertcoin-project/vertcoin-core/releases/download/{0}/vertcoin-qt-v{0}-macos.dmg",
+					Archive = "vertcoind-v{0}-macos.dmg",
+					Executable = "VTC-{0}\\vertcoind",
+					Hash = "b15aba987ae78567c0fdb3dc36c0b067fd20953979c00417643956c34b252adb",
+					CreateFolder = "VTC-{0}",
+				}
+			};
+		}
 
 		public class ChaincoinNodeDownloadData
 		{
@@ -1031,6 +1062,10 @@ namespace NBitcoin.Tests
 		{
 			get; set;
 		} = new StratisNodeDownloadData();
+		public static VertcoinNodeDownloadData Vertcoin
+		{
+			get; set;
+		} = new VertcoinNodeDownloadData();
 
 		public bool UseSectionInConfigFile { get; private set; }
 		public string AdditionalRegtestConfig { get; private set; }
